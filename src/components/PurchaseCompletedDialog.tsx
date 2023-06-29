@@ -1,8 +1,14 @@
-import { useState } from "react";
 import { Dialog, DialogTitle, DialogActions, Button } from "@mui/material";
 
-function PurchaseCompletedDialog() {
-  const [isOpen, setIsOpen] = useState(true);
+interface PurchaseCompletedProps {
+  isOpen: boolean;
+  setIsOpen: Function;
+}
+
+const PurchaseCompletedDialog = ({
+  isOpen,
+  setIsOpen,
+}: PurchaseCompletedProps) => {
   const handleClose = () => setIsOpen(false);
 
   return (
@@ -15,6 +21,6 @@ function PurchaseCompletedDialog() {
       </DialogActions>
     </Dialog>
   );
-}
+};
 
 export default PurchaseCompletedDialog;
