@@ -1,22 +1,17 @@
-import { Alert, AlertProps, Snackbar } from "@mui/material";
+import { Alert, AlertProps, Snackbar, SnackbarProps } from "@mui/material";
 
-interface PopUpMessageProps {
-  isOpen: boolean;
+interface PopUpProps extends AlertProps {
   valueToShow: React.ReactNode;
 }
 
-const PopUp = ({
-  isOpen,
-  valueToShow,
-  ...props
-}: PopUpMessageProps & AlertProps) => {
+const PopUp = ({ valueToShow, ...other }: PopUpProps & SnackbarProps) => {
   return (
     <Snackbar
-      open={isOpen}
       autoHideDuration={3000}
       anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      {...other}
     >
-      <Alert variant={"filled"} severity={"info"} {...props}>
+      <Alert variant={"filled"} severity={"info"} {...other}>
         {valueToShow}
       </Alert>
     </Snackbar>

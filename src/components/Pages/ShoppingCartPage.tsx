@@ -55,7 +55,7 @@ const ShoppingCartPage = () => {
   return (
     <>
       <PopUp
-        isOpen={showProgressBar}
+        open={showProgressBar}
         valueToShow={
           <LinearProgress
             variant="determinate"
@@ -66,14 +66,14 @@ const ShoppingCartPage = () => {
         icon={false}
       />
       <PopUp
-        isOpen={errorOpen}
+        open={errorOpen}
         severity={"error"}
         icon={false}
         valueToShow="ההזמנה לא הושלמה"
       />
       <PurchaseCompletedDialog
-        isOpen={isPurchaseCompleted}
-        setIsOpen={setPurchaseCompleted}
+        open={isPurchaseCompleted}
+        setOpen={setPurchaseCompleted}
       />
       {productsList && productsList.length > 0 ? (
         <div style={{ textAlign: "center" }}>
