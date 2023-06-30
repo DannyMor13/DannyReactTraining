@@ -1,5 +1,5 @@
-import AppBar from "./components/AppBar.tsx";
-import Tabs from "./components/Tabs.tsx";
+import AppBar from "./components/AppBar";
+import Tabs from "./components/Tabs";
 import "./App.css";
 
 const App = () => (

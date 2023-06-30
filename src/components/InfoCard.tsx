@@ -3,7 +3,6 @@ import {
   DialogTitle,
   Typography,
   DialogContent,
-  CardMedia,
   DialogActions,
   Button,
   Box,
