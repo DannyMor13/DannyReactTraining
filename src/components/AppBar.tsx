@@ -8,23 +8,23 @@ const ButtonAppBar = () => {
   const sum = useSelector((state: RootState) => state.sum);
 
   return (
-    <Box sx={{ display: "flex" }}>
-      <AppBar component="nav" sx={{ zIndex: 1 }}>
+    <>
+      <AppBar component="nav">
         <Toolbar>
-          <Badge badgeContent={productsList.length} color="warning">
+          <Badge
+            badgeContent={productsList.length}
+            color="warning"
+            sx={{ marginRight: "auto", marginLeft: -0.5 }}
+          >
             <ShoppingCartIcon color="action" />
           </Badge>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, textAlign: "right" }}
-          >
+          <Typography variant="h6" component="div">
             סכום כולל: {sum.toFixed(2)}₪
           </Typography>
         </Toolbar>
       </AppBar>
       <Toolbar />
-    </Box>
+    </>
   );
 };
 
