@@ -4,13 +4,18 @@ import HomeIcon from "@mui/icons-material/Home";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import HomePage from "./Pages/HomePage";
 import ShoppingCartPage from "./Pages/ShoppingCartPage";
-import { tabsStyle } from "./Styles/styles";
 
 interface TabPanelProps {
   children?: React.ReactNode;
   index: number;
   value: number;
 }
+
+const tabsStyle = {
+  borderColor: "divider",
+  display: "flex",
+  justifyContent: "flex-end",
+};
 
 const TabPanel = ({ children, value, index }: TabPanelProps) => {
   return (

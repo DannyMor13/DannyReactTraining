@@ -1,11 +1,11 @@
-const productCardStyle = {
+const cardStyle = {
   width: 300,
   height: 345,
   textAlign: "center",
   position: "relative",
 };
 
-const productCardBtnsStyle = {
+const cardBtnsStyle = {
   display: "flex",
   justifyContent: "space-between",
   position: "absolute",
@@ -14,9 +14,4 @@ const productCardBtnsStyle = {
   right: 0,
 };
 
-const productImgStyle = {
-  height: 140,
-  width: "100%",
-};
-
-export { productCardStyle, productCardBtnsStyle, productImgStyle };
+export { cardStyle, cardBtnsStyle };

@@ -1,19 +1,17 @@
-import React from "react";
-import Button from "@mui/material/Button";
+import Button, { ButtonProps } from "@mui/material/Button";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../../app/productsSlice";
 import Product from "../../Product";
 
-interface AddToCartProps {
+interface AddToCartProps extends ButtonProps {
   product: Product;
-  handleClose: () => void;
-  isPrimaryBtn: boolean;
-  style?: React.CSSProperties;
+  handleClose?: () => void;
+  showIcon?: boolean;
 }
 
 const AddToCart = (props: AddToCartProps) => {
-  const { product, handleClose, isPrimaryBtn, style } = props;
+  const { product, showIcon = true, handleClose, ...other } = props;
   const dispatch = useDispatch();
 
   const handleClick = () => {
@@ -24,16 +22,14 @@ const AddToCart = (props: AddToCartProps) => {
         image: product.image,
       })
     );
-    handleClose();
+    if (handleClose) {
+      handleClose();
+    }
   };
 
   return (
-    <Button
-      variant={isPrimaryBtn ? "contained" : "text"}
-      onClick={handleClick}
-      style={style}
-    >
-      {isPrimaryBtn && <ShoppingCartIcon />}
+    <Button onClick={handleClick} {...other}>
+      {showIcon && <ShoppingCartIcon />}
       הוסף לעגלה
     </Button>
   );

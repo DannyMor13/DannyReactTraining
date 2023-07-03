@@ -1,16 +1,18 @@
-import { Dialog, DialogTitle, DialogActions, Button } from "@mui/material";
+import {
+  Dialog,
+  DialogTitle,
+  DialogActions,
+  Button,
+  DialogProps,
+  ButtonProps,
+} from "@mui/material";
 
-interface PurchaseCompletedProps {
-  setOpen: Function;
-  open: boolean;
-}
-
-const PurchaseCompletedDialog = ({ setOpen, open }: PurchaseCompletedProps) => {
+const PurchaseCompletedDialog = ({ ...others }: DialogProps & ButtonProps) => {
   return (
-    <Dialog open={open} onClose={() => setOpen(false)}>
+    <Dialog {...others}>
       <DialogTitle>!תתחדש/י</DialogTitle>
       <DialogActions sx={{ justifyContent: "left" }}>
-        <Button variant="text" onClick={() => setOpen(false)}>
+        <Button variant="text" {...others}>
           סגור
         </Button>
       </DialogActions>

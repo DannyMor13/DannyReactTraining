@@ -11,7 +11,5 @@ const sumSlice = createSlice({
 });
 
 const { actions, reducer } = sumSlice;
-
 export const { reduceSum } = actions;
-
 export default reducer;

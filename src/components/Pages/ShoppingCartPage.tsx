@@ -1,14 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import ProductInCart from "../ProductInCart";
-import OrderBtn from "../Buttons/OrderBtn";
 import Product from "../../Product";
 import { RootState } from "../../app/store";
 import { removeProduct } from "../../app/productsSlice";
 import { reduceSum } from "../../app/sumSlice";
 import PurchaseCompletedDialog from "../PurchaseCompletedDialog";
 import PopUp from "../PopUp";
-import { LinearProgress } from "@mui/material";
+import { Button, LinearProgress, List } from "@mui/material";
 
 const ShoppingCartPage = () => {
   const dispatch = useDispatch();
@@ -26,7 +25,7 @@ const ShoppingCartPage = () => {
     );
   };
 
-  const handleClick = () => {
+  const placeOrder = () => {
     if (getTotalPrice() <= sum) {
       setErrorOpen(false);
       setShowProgressBar(true);
@@ -73,18 +72,27 @@ const ShoppingCartPage = () => {
       />
       <PurchaseCompletedDialog
         open={isPurchaseCompleted}
-        setOpen={setPurchaseCompleted}
+        onClose={() => setPurchaseCompleted(false)}
+        onClick={() => setPurchaseCompleted(false)}
       />
       {productsList && productsList.length > 0 ? (
         <div style={{ textAlign: "center" }}>
-          <OrderBtn handleClick={handleClick} totalPrice={getTotalPrice()} />
+          <Button variant="contained" onClick={placeOrder} size="large">
+            הזמן {getTotalPrice().toFixed(2)}₪
+          </Button>
         </div>
       ) : (
         <p style={{ textAlign: "center" }}>העגלה ריקה</p>
       )}
-      {productsList.map((product: Product, index: number) => (
-        <ProductInCart key={product.id} product={product} indexInCart={index} />
-      ))}
+      <List>
+        {productsList.map((product: Product, index: number) => (
+          <ProductInCart
+            key={product.id}
+            product={product}
+            indexInCart={index}
+          />
+        ))}
+      </List>
     </>
   );
 };

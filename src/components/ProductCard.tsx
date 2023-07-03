@@ -1,9 +1,5 @@
 import { useState } from "react";
-import {
-  productCardStyle,
-  productCardBtnsStyle,
-  productImgStyle,
-} from "./Styles/productCardStyles";
+import { cardStyle, cardBtnsStyle } from "../Styles/productCardStyles";
 import {
   Card,
   CardActions,
@@ -22,11 +18,11 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
   const handleClose = () => setInfoCardOpen(false);
 
   return (
-    <Card sx={productCardStyle}>
+    <Card sx={cardStyle}>
       <CardMedia
         component={"img"}
         image={product.image}
-        sx={productImgStyle}
+        sx={{ height: 140 }}
         alt="product picture"
       />
       <CardContent>
@@ -37,21 +33,20 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
           {product.price}₪
         </Typography>
       </CardContent>
-      <CardActions style={productCardBtnsStyle}>
+      <CardActions sx={cardBtnsStyle}>
         <Button
           variant="contained"
           color="secondary"
           onClick={() => setInfoCardOpen(true)}
-          style={{ margin: "10px" }}
+          sx={{ margin: "10px 8px" }}
         >
           <InfoIcon />
           פרטים
         </Button>
         <AddToCart
           product={product}
-          handleClose={handleClose}
-          isPrimaryBtn={true}
-          style={{ margin: "10px" }}
+          variant="contained"
+          sx={{ margin: "10px" }}
         />
         <InfoCard
           open={isInfoCardOpen}

@@ -26,7 +26,7 @@ const ProductInCart = ({ product, indexInCart }: ProductInCartProps) => {
       <ListItemText
         primary={product.name}
         secondary={product.price + "₪"}
-        sx={{ textAlign: "right" }}
+        sx={{ textAlign: "right", marginRight: "20px" }}
       />
       <Button
         color="error"
