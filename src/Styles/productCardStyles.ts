@@ -1,3 +1,4 @@
+//I'd add a type to these objects (SxProps)
 const cardStyle = {
   width: 300,
   height: 345,

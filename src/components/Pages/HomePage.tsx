@@ -18,7 +18,9 @@ const HomePage = () => {
   }, []);
 
   return (
+    //no need for this wrapper < >
     <>
+    {/* */}
       {products.length > 0 ? (
         <Grid
           container

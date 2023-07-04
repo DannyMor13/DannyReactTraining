@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../app/store";
 
 const ButtonAppBar = () => {
+  //export selectors to use as parameters with useSelector
   const productsList = useSelector((state: RootState) => state.products);
   const sum = useSelector((state: RootState) => state.sum);
 
@@ -11,6 +12,7 @@ const ButtonAppBar = () => {
     <>
       <AppBar component="nav">
         <Toolbar>
+          {/* remove margin left -0.5 */}
           <Badge
             badgeContent={productsList.length}
             color="warning"

@@ -5,6 +5,7 @@ const productsSlice = createSlice({
   name: "products",
   initialState: [] as Product[],
   reducers: {
+    //Add a type to the action. It has 'any' type
     addProduct: (state, action) => {
       state.push(action.payload);
     },

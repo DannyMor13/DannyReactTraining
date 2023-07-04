@@ -1,3 +1,4 @@
+//remove unused imports
 import { configureStore, Store } from "@reduxjs/toolkit";
 import sumSlice from "./sumSlice";
 import productsSlice from "./productsSlice";

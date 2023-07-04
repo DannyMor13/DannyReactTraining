@@ -9,6 +9,7 @@ import {
 
 const PurchaseCompletedDialog = ({ ...others }: DialogProps & ButtonProps) => {
   return (
+    //Wouldn't it be possible to send DialogProps to Button and vice versa?
     <Dialog {...others}>
       <DialogTitle>!תתחדש/י</DialogTitle>
       <DialogActions sx={{ justifyContent: "left" }}>

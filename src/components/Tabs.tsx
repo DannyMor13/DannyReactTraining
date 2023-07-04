@@ -1,3 +1,4 @@
+//Import ReactNode from react, no need to import everything
 import * as React from "react";
 import { Tabs, Tab, Typography, Box } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
@@ -17,8 +18,10 @@ const tabsStyle = {
   justifyContent: "flex-end",
 };
 
+//Why send value if it is only compared to index?
 const TabPanel = ({ children, value, index }: TabPanelProps) => {
   return (
+    //is an extra div really needed here?
     <div
       role="tabpanel"
       hidden={value !== index}
@@ -34,6 +37,7 @@ const TabPanel = ({ children, value, index }: TabPanelProps) => {
   );
 };
 
+//what it this?
 const a11yProps = (index: number) => {
   return {
     id: `simple-tab-${index}`,
@@ -42,8 +46,10 @@ const a11yProps = (index: number) => {
 };
 
 const BasicTabs = () => {
+  //Change to a better name here
   const [value, setValue] = React.useState(1);
 
+  //SyntheticEvent usually accepts a generic <> type depenting on the event
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
