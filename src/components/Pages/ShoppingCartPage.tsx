@@ -72,7 +72,7 @@ const ShoppingCartPage = () => {
         open={errorOpen}
         severity={"error"}
         icon={false}
-        children={<>"ההזמנה לא הושלמה"</>}
+        children={<>ההזמנה לא הושלמה</>}
       />
       <PurchaseCompletedDialog
         open={isPurchaseCompleted}
@@ -92,7 +92,7 @@ const ShoppingCartPage = () => {
           <ProductInCart
             key={product.id}
             product={product}
-            indexInCart={index}
+            cartItemIndex={index}
           />
         ))}
       </List>

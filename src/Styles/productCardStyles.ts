@@ -1,12 +1,13 @@
-//I'd add a type to these objects (SxProps)
-const cardStyle = {
+import { SxProps } from "@mui/material";
+
+const cardStyle: SxProps = {
   width: 300,
   height: 345,
   textAlign: "center",
   position: "relative",
 };
 
-const cardBtnsStyle = {
+const cardBtnsStyle: SxProps = {
   display: "flex",
   justifyContent: "space-between",
   position: "absolute",

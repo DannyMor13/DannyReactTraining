@@ -1,15 +1,14 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import Product from "../Product";
 
 const productsSlice = createSlice({
   name: "products",
   initialState: [] as Product[],
   reducers: {
-    //Add a type to the action. It has 'any' type
-    addProduct: (state, action) => {
+    addProduct: (state, action: PayloadAction<Product>) => {
       state.push(action.payload);
     },
-    removeProduct: (state, action) => {
+    removeProduct: (state, action: PayloadAction<number>) => {
       state.splice(action.payload, 1);
     },
   },

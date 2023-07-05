@@ -17,36 +17,31 @@ const HomePage = () => {
     fetchProducts();
   }, []);
 
-  return (
-    //no need for this wrapper < > ==> response: it doesnt work without it
-    <>
-      {products.length > 0 ? (
-        <Grid
-          container
-          rowSpacing={3}
-          direction="row-reverse"
-          columnSpacing={2}
-          justifyContent={"center"}
-        >
-          {products.map((product: Product) => (
-            <Grid item key={product.id}>
-              <ProductCard product={product} key={product.id} />
-            </Grid>
-          ))}
+  return products.length > 0 ? (
+    <Grid
+      container
+      rowSpacing={3}
+      direction="row-reverse"
+      columnSpacing={2}
+      justifyContent={"center"}
+    >
+      {products.map((product: Product) => (
+        <Grid item key={product.id}>
+          <ProductCard product={product} key={product.id} />
         </Grid>
-      ) : (
-        <Box
-          sx={{
-            display: "grid",
-            placeItems: "center",
-          }}
-        >
-          <Box sx={{ width: "90%", marginTop: "200px" }}>
-            <LinearProgress />
-          </Box>
-        </Box>
-      )}
-    </>
+      ))}
+    </Grid>
+  ) : (
+    <Box
+      sx={{
+        display: "grid",
+        placeItems: "center",
+      }}
+    >
+      <Box sx={{ width: "90%", marginTop: "200px" }}>
+        <LinearProgress />
+      </Box>
+    </Box>
   );
 };
 

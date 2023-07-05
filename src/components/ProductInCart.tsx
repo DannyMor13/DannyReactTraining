@@ -12,10 +12,10 @@ import Product from "../Product";
 
 interface ProductInCartProps {
   product: Product;
-  indexInCart: number;
+  cartItemIndex: number;
 }
 
-const ProductInCart = ({ product, indexInCart }: ProductInCartProps) => {
+const ProductInCart = ({ product, cartItemIndex }: ProductInCartProps) => {
   const dispatch = useDispatch();
 
   return (
@@ -30,7 +30,7 @@ const ProductInCart = ({ product, indexInCart }: ProductInCartProps) => {
       />
       <Button
         color="error"
-        onClick={() => dispatch(removeProduct(indexInCart))}
+        onClick={() => dispatch(removeProduct(cartItemIndex))}
       >
         <DeleteIcon />
       </Button>
