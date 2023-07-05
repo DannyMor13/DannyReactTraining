@@ -1,19 +1,16 @@
-import {
-  Dialog,
-  DialogTitle,
-  DialogActions,
-  Button,
-  DialogProps,
-  ButtonProps,
-} from "@mui/material";
+import { Dialog, DialogTitle, DialogActions, Button } from "@mui/material";
 
-const PurchaseCompletedDialog = ({ ...others }: DialogProps & ButtonProps) => {
+interface PurchaseCompletedProps {
+  onClose: () => void;
+  open: boolean;
+}
+
+const PurchaseCompletedDialog = ({ open, onClose }: PurchaseCompletedProps) => {
   return (
-    //Wouldn't it be possible to send DialogProps to Button and vice versa?
-    <Dialog {...others}>
+    <Dialog open={open} onClose={onClose}>
       <DialogTitle>!תתחדש/י</DialogTitle>
       <DialogActions sx={{ justifyContent: "left" }}>
-        <Button variant="text" {...others}>
+        <Button variant="text" onClick={onClose}>
           סגור
         </Button>
       </DialogActions>

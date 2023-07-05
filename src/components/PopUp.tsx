@@ -1,12 +1,11 @@
 import { Alert, AlertProps, Snackbar, SnackbarProps } from "@mui/material";
 
 interface PopUpProps extends AlertProps {
-  //usually it is called children
-  valueToShow: React.ReactNode;
+  children: React.ReactNode;
 }
 
-const PopUp = ({ valueToShow, ...other }: PopUpProps & SnackbarProps) => {
-      //Wouldn't it be possible to send PopUpProps to SnackBar and vice versa?
+const PopUp = ({ children, ...other }: PopUpProps & SnackbarProps) => {
+  //Wouldn't it be possible to send PopUpProps to SnackBar and vice versa?
   return (
     <Snackbar
       autoHideDuration={3000}
@@ -14,7 +13,7 @@ const PopUp = ({ valueToShow, ...other }: PopUpProps & SnackbarProps) => {
       {...other}
     >
       <Alert variant={"filled"} severity={"info"} {...other}>
-        {valueToShow}
+        {children}
       </Alert>
     </Snackbar>
   );

@@ -40,7 +40,6 @@ const ShoppingCartPage = () => {
         setTimeout(() => {
           dispatch(removeProduct(product.id));
           dispatch(reduceSum(product.price));
-          //NICE
           setProgress((prevProgress) => prevProgress + progressInterval);
 
           if (index + 1 === productCount) {
@@ -60,7 +59,7 @@ const ShoppingCartPage = () => {
     <>
       <PopUp
         open={showProgressBar}
-        valueToShow={
+        children={
           <LinearProgress
             variant="determinate"
             value={progress}
@@ -73,15 +72,13 @@ const ShoppingCartPage = () => {
         open={errorOpen}
         severity={"error"}
         icon={false}
-        valueToShow="ההזמנה לא הושלמה"
+        children={<>"ההזמנה לא הושלמה"</>}
       />
       <PurchaseCompletedDialog
         open={isPurchaseCompleted}
         onClose={() => setPurchaseCompleted(false)}
-        onClick={() => setPurchaseCompleted(false)}
       />
-      {/* why check if product list exists? */}
-      {productsList && productsList.length > 0 ? (
+      {productsList.length > 0 ? (
         <div style={{ textAlign: "center" }}>
           <Button variant="contained" onClick={placeOrder} size="large">
             הזמן {getTotalPrice().toFixed(2)}₪
@@ -93,7 +90,6 @@ const ShoppingCartPage = () => {
       <List>
         {productsList.map((product: Product, index: number) => (
           <ProductInCart
-          //the key prop is not useful here and throws an error in the console (i have the same error). You don't have to fix it, just know why this happens
             key={product.id}
             product={product}
             indexInCart={index}

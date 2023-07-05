@@ -16,7 +16,11 @@ const AddToCart = (props: AddToCartProps) => {
 
   const handleClick = () => {
     dispatch(
-      addProduct(product)
+      addProduct({
+        name: product.name,
+        price: product.price,
+        image: product.image,
+      })
     );
     //what?
     if (handleClose) {

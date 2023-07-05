@@ -1,10 +1,9 @@
-//Import ReactNode from react, no need to import everything
-import * as React from "react";
 import { Tabs, Tab, Typography, Box } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import HomePage from "./Pages/HomePage";
 import ShoppingCartPage from "./Pages/ShoppingCartPage";
+import { useState } from "react";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -47,7 +46,7 @@ const a11yProps = (index: number) => {
 
 const BasicTabs = () => {
   //Change to a better name here
-  const [value, setValue] = React.useState(1);
+  const [value, setValue] = useState(1);
 
   //SyntheticEvent usually accepts a generic <> type depenting on the event
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {

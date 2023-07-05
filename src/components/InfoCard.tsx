@@ -15,8 +15,7 @@ interface InfoCardProps {
   product: Product;
 }
 
-//use the same component syntax everywhere
-function InfoCard({ open, handleClose, product }: InfoCardProps) {
+const InfoCard = ({ open, handleClose, product }: InfoCardProps) => {
   return (
     <Dialog open={open} onClose={handleClose} sx={{ textAlign: "right" }}>
       <DialogTitle>{product.name}</DialogTitle>
@@ -36,13 +35,12 @@ function InfoCard({ open, handleClose, product }: InfoCardProps) {
           handleClose={handleClose}
           showIcon={false}
         />
-        {/* no need for anonymus function here, you can just put {handleClose} */}
-        <Button variant="text" onClick={() => handleClose()}>
+        <Button variant="text" onClick={handleClose}>
           סגור
         </Button>
       </DialogActions>
     </Dialog>
   );
-}
+};
 
 export default InfoCard;

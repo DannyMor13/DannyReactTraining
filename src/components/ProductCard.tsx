@@ -13,10 +13,12 @@ import InfoCard from "./InfoCard";
 import AddToCart from "./Buttons/AddToCartBtn";
 import Product from "../Product";
 
-//use a consistent syntax for creating components
-const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
-  //change to useState<boolean>(false)
-  const [isInfoCardOpen, setInfoCardOpen] = useState(false);
+interface CardProps {
+  product: Product;
+}
+
+const ProductCard = ({ product }: CardProps) => {
+  const [isInfoCardOpen, setInfoCardOpen] = useState<boolean>(false);
   const handleClose = () => setInfoCardOpen(false);
 
   return (
