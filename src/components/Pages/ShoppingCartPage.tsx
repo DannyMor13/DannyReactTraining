@@ -13,10 +13,9 @@ const ShoppingCartPage = () => {
   const dispatch = useDispatch();
   const productsList = useSelector((state: RootState) => state.products);
   const sum = useSelector((state: RootState) => state.sum);
-  //these states should be like in wpf - they should represent what the state of the app is like (like isPurchaseCompleted - and not like showProgressBar)
   //also - you should try to use useReducer ot a custom type to minimize
-  const [showProgressBar, setShowProgressBar] = useState(false);
-  const [errorOpen, setErrorOpen] = useState(false);
+  const [orderInProgress, setOrderInProgress] = useState(false);
+  const [orderFailed, setOrderFailed] = useState(false);
   const [isPurchaseCompleted, setPurchaseCompleted] = useState(false);
   const [progress, setProgress] = useState(0);
 
@@ -30,35 +29,35 @@ const ShoppingCartPage = () => {
 
   const placeOrder = () => {
     if (getTotalPrice() <= sum) {
-      setErrorOpen(false);
-      setShowProgressBar(true);
+      setOrderFailed(false);
+      setOrderInProgress(true);
 
       const productCount = productsList.length;
       const progressInterval = Math.floor(100 / productCount);
 
       productsList.forEach((product: Product, index: number) => {
         setTimeout(() => {
-          dispatch(removeProduct(product.id));
+          dispatch(removeProduct(0));
           dispatch(reduceSum(product.price));
           setProgress((prevProgress) => prevProgress + progressInterval);
 
           if (index + 1 === productCount) {
-            setShowProgressBar(false);
+            setOrderInProgress(false);
             setPurchaseCompleted(true);
           }
           //This was my first solution too. It should probably be a Promise though to fake a request from an api
         }, 500 * (index + 1));
       });
     } else {
-      setErrorOpen(true);
-      setShowProgressBar(false);
+      setOrderFailed(true);
+      setOrderInProgress(false);
     }
   };
 
   return (
     <>
       <PopUp
-        open={showProgressBar}
+        open={orderInProgress}
         children={
           <LinearProgress
             variant="determinate"
@@ -69,7 +68,7 @@ const ShoppingCartPage = () => {
         icon={false}
       />
       <PopUp
-        open={errorOpen}
+        open={orderFailed}
         severity={"error"}
         icon={false}
         children={<>ההזמנה לא הושלמה</>}

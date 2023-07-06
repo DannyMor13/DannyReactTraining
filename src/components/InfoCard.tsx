@@ -6,8 +6,9 @@ import {
   Button,
   DialogContentText,
 } from "@mui/material";
-import AddToCart from "./Buttons/AddToCartBtn";
 import Product from "../Product";
+import { addProduct } from "../app/productsSlice";
+import { useDispatch } from "react-redux";
 
 interface InfoCardProps {
   open: boolean;
@@ -16,6 +17,21 @@ interface InfoCardProps {
 }
 
 const InfoCard = ({ open, handleClose, product }: InfoCardProps) => {
+  const dispatch = useDispatch();
+
+  const addToCart = () => {
+    dispatch(
+      addProduct({
+        name: product.name,
+        price: product.price,
+        image: product.image,
+        //id: product.id,
+        description: product.description,
+      })
+    );
+    handleClose();
+  };
+
   return (
     <Dialog open={open} onClose={handleClose} sx={{ textAlign: "right" }}>
       <DialogTitle>{product.name}</DialogTitle>
@@ -30,11 +46,7 @@ const InfoCard = ({ open, handleClose, product }: InfoCardProps) => {
       <DialogActions
         sx={{ justifyContent: "flex-end", flexDirection: "row-reverse" }}
       >
-        <AddToCart
-          product={product}
-          handleClose={handleClose}
-          showIcon={false}
-        />
+        <Button onClick={addToCart}>הוסף לעגלה</Button>
         <Button variant="text" onClick={handleClose}>
           סגור
         </Button>
