@@ -1,14 +1,22 @@
-import jsonProducts from "../data/Products.json";
+import { useEffect, useState } from "react";
 import Product from "../Product";
 
+const useProducts = (json: Product[]) => {
+  const [products, setProducts] = useState<Product[]>([]);
 
-// make this thing a custom hook
-const LoadProducts = (): Promise<Product[]> => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(jsonProducts);
-    }, 300);
-  });
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const loadedProducts: Product[] = await new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(json);
+        }, 300);
+      });
+      setProducts(loadedProducts);
+    };
+
+    fetchProducts();
+  }, []);
+  return products;
 };
 
-export default LoadProducts;
+export default useProducts;

@@ -24,19 +24,6 @@ const ProductCard = ({ product }: CardProps) => {
   const [isInfoCardOpen, setInfoCardOpen] = useState<boolean>(false);
   const handleClose = () => setInfoCardOpen(false);
 
-  const addToCart = () => {
-    dispatch(
-      // make it addProduct(product)
-      addProduct({
-        name: product.name,
-        price: product.price,
-        image: product.image,
-        //id: product.id,
-        description: product.description,
-      })
-    );
-  };
-
   return (
     <Card sx={cardStyle}>
       <CardMedia
@@ -63,7 +50,11 @@ const ProductCard = ({ product }: CardProps) => {
           <InfoIcon />
           פרטים
         </Button>
-        <Button onClick={addToCart} variant="contained" sx={{ margin: "10px" }}>
+        <Button
+          onClick={() => dispatch(addProduct(product))}
+          variant="contained"
+          sx={{ margin: "10px" }}
+        >
           <ShoppingCartIcon />
           הוסף לעגלה
         </Button>

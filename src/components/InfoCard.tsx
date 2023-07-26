@@ -20,15 +20,7 @@ const InfoCard = ({ open, handleClose, product }: InfoCardProps) => {
   const dispatch = useDispatch();
 
   const addToCart = () => {
-    dispatch(
-      addProduct({
-        name: product.name,
-        price: product.price,
-        image: product.image,
-        //id: product.id,
-        description: product.description,
-      })
-    );
+    dispatch(addProduct(product));
     handleClose();
   };
 

@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "./store";
 
 const sumSlice = createSlice({
   name: "sum",
@@ -12,4 +13,6 @@ const sumSlice = createSlice({
 
 const { actions, reducer } = sumSlice;
 export const { reduceSum } = actions;
+export const selectSum = (state: RootState) => state.sum;
+
 export default reducer;

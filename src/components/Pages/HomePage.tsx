@@ -1,21 +1,12 @@
 import Grid from "@mui/material/Grid";
 import ProductCard from "../ProductCard";
 import Product from "../../Product";
-import LoadProducts from "../../Helpers/ProductsLoader";
-import { useEffect, useState } from "react";
 import { Box, LinearProgress } from "@mui/material";
+import jsonProducts from "../../data/Products.json";
+import useProducts from "../../Helpers/ProductsLoader";
 
 const HomePage = () => {
-  const [products, setProducts] = useState<Product[]>([]);
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const loadedProducts: Product[] = await LoadProducts();
-      setProducts(loadedProducts);
-    };
-
-    fetchProducts();
-  }, []);
+  const products: Product[] = useProducts(jsonProducts);
 
   return products.length > 0 ? (
     <Grid

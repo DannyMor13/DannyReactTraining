@@ -1,5 +1,6 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction, createSelector } from "@reduxjs/toolkit";
 import Product from "../Product";
+import { RootState } from "./store";
 
 const productsSlice = createSlice({
   name: "products",
@@ -16,4 +17,12 @@ const productsSlice = createSlice({
 
 const { actions, reducer } = productsSlice;
 export const { addProduct, removeProduct } = actions;
+export const selectProducts = (state: RootState) => state.products;
 export default reducer;
+
+export const selectTotalPrice = createSelector(selectProducts, (products) => {
+  return products.reduce(
+    (totalPrice, product) => totalPrice + product.price,
+    0
+  );
+});
