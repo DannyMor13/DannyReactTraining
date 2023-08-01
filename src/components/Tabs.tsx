@@ -14,10 +14,12 @@ const tabsStyle = {
 const TabPanel = () => {
   const [currTabIndex, setCurrTabIndex] = useState(0);
 
+  //what is this?? {}
   const handleChange = (event: React.ChangeEvent<{}>, index: number) => {
     setCurrTabIndex(index);
   };
 
+  //why did you change the tabs? in my opinion your first solution was better
   return (
     <Box sx={{ width: "100%" }}>
       <Box sx={tabsStyle}>

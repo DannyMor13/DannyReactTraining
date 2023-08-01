@@ -1,6 +1,7 @@
 import { Alert, AlertProps, Snackbar } from "@mui/material";
 
 interface PopUpProps extends AlertProps {
+  //there is a nicer way to add children to the type in my opinion - React.PropsWithChildren<AlertProps>
   children: React.ReactNode;
   open: boolean;
 }

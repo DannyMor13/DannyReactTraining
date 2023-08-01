@@ -7,6 +7,8 @@ const initialState = {
 
 type StateType = typeof initialState;
 
+
+//NICE!!!!!
 type ActionType =
   | { type: "START_ORDER" }
   | { type: "UPDATE_PROGRESS"; payload: number }

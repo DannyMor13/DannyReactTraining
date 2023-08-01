@@ -39,6 +39,7 @@ const ShoppingCartPage = () => {
             if (index + 1 === productCount) {
               dispatchState({ type: "ORDER_COMPLETED" });
             }
+            //I don't really like the index * 500 thing, I think every promise should wait 500ms.
           }, 500 * (index + 1));
         });
       });
