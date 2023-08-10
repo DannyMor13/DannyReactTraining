@@ -7,7 +7,7 @@ import {
   DialogContentText,
 } from "@mui/material";
 import Product from "../Product";
-import { addProduct } from "../app/productsSlice";
+import { addProduct } from "../app/cartSlice";
 import { useDispatch } from "react-redux";
 
 interface InfoCardProps {

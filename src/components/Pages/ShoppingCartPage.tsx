@@ -6,7 +6,7 @@ import {
   removeProduct,
   selectProducts,
   selectTotalPrice,
-} from "../../app/productsSlice";
+} from "../../app/cartSlice";
 import { reduceSum, selectSum } from "../../app/sumSlice";
 import PurchaseCompletedDialog from "../PurchaseCompletedDialog";
 import PopUp from "../PopUp";

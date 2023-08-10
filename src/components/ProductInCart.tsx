@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useDispatch } from "react-redux";
-import { removeProduct } from "../app/productsSlice";
+import { removeProduct } from "../app/cartSlice";
 import Product from "../Product";
 
 interface ProductInCartProps {

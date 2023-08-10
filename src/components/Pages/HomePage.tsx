@@ -2,11 +2,10 @@ import Grid from "@mui/material/Grid";
 import ProductCard from "../ProductCard";
 import Product from "../../Product";
 import { Box, LinearProgress } from "@mui/material";
-import jsonProducts from "../../data/Products.json";
-import useProducts from "../../Helpers/ProductsLoader";
+import useProducts from "../../hooks/useProducts";
 
 const HomePage = () => {
-  const products: Product[] = useProducts(jsonProducts);
+  const products: Product[] = useProducts();
 
   return products.length > 0 ? (
     <Grid

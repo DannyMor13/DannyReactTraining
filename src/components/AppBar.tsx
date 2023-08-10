@@ -1,7 +1,7 @@
 import { AppBar, Toolbar, Typography, Badge } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useSelector } from "react-redux";
-import { selectProducts } from "../app/productsSlice";
+import { selectProducts } from "../app/cartSlice";
 import { selectSum } from "../app/sumSlice";
 
 const ButtonAppBar = () => {

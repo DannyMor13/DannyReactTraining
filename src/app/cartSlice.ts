@@ -2,9 +2,8 @@ import { createSlice, PayloadAction, createSelector } from "@reduxjs/toolkit";
 import Product from "../Product";
 import { RootState } from "./store";
 
-//I think this should have cart in the name since it needs to be different from the list of products
-const productsSlice = createSlice({
-  name: "products",
+const cartSlice = createSlice({
+  name: "cart",
   initialState: [] as Product[],
   reducers: {
     addProduct: (state, action: PayloadAction<Product>) => {
@@ -16,7 +15,7 @@ const productsSlice = createSlice({
   },
 });
 
-const { actions, reducer } = productsSlice;
+const { actions, reducer } = cartSlice;
 export const { addProduct, removeProduct } = actions;
 export const selectProducts = (state: RootState) => state.products;
 export default reducer;

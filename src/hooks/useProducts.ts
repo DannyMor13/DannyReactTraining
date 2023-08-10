@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import Product from "../Product";
+import json from "../data/Products.json";
 
-//this file should be named useProducts inside a Hooks folder
-//Also in my opinion it should access the products.json directly and not as a parameter every time
-const useProducts = (json: Product[]) => {
+const useProducts = () => {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {

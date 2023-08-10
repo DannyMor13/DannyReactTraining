@@ -12,7 +12,7 @@ import InfoIcon from "@mui/icons-material/Info";
 import InfoCard from "./InfoCard";
 import Product from "../Product";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { addProduct } from "../app/productsSlice";
+import { addProduct } from "../app/cartSlice";
 import { useDispatch } from "react-redux";
 
 interface CardProps {
